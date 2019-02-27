@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://zw.com/netty/facade/dto" elementFormDefault="qualified" targetNamespace="http://zw.com/netty/facade/dto">
+  <xs:complexType name="order">
+    <xs:sequence>
+      <xs:element name="c" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:string" name="customerName" minOccurs="0"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" use="required" name="customerID"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addr" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:string" name="street" minOccurs="0"/>
+            <xs:element type="xs:string" name="area" minOccurs="0"/>
+            <xs:element type="xs:string" name="city" minOccurs="0"/>
+            <xs:element type="xs:string" name="province" minOccurs="0"/>
+            <xs:element type="xs:string" name="desc" minOccurs="0"/>
+            <xs:element type="xs:string" name="zip" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ship" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="NORMAL"/>
+            <xs:enumeration value="HOMEDELIVERY"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:int" use="required" name="amount"/>
+    <xs:attribute type="xs:float" use="required" name="sum"/>
+  </xs:complexType>
+  <xs:element type="tns:order" name="order"/>
+</xs:schema>

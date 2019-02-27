@@ -1,0 +1,23 @@
+<binding xmlns:ns1="http://zw.com/netty/facade/dto" name="binding" package="com.zw.netty.facade.dto">
+  <namespace uri="http://zw.com/netty/facade/dto" default="elements"/>
+  <mapping abstract="true" type-name="ns1:order" class="com.zw.netty.facade.dto.Order">
+    <value style="attribute" name="amount" field="amount"/>
+    <structure field="c" usage="optional" name="c">
+      <value style="attribute" name="customerID" field="customerID"/>
+      <value style="element" name="customerName" field="customerName" usage="optional"/>
+    </structure>
+    <structure field="addr" usage="optional" name="addr">
+      <value style="element" name="street" field="street" usage="optional"/>
+      <value style="element" name="area" field="area" usage="optional"/>
+      <value style="element" name="city" field="city" usage="optional"/>
+      <value style="element" name="province" field="province" usage="optional"/>
+      <value style="element" name="desc" field="desc" usage="optional"/>
+      <value style="element" name="zip" field="zip" usage="optional"/>
+    </structure>
+    <value style="element" name="ship" field="ship" usage="optional"/>
+    <value style="attribute" name="sum" field="sum"/>
+  </mapping>
+  <mapping class="com.zw.netty.facade.dto.Order" name="order">
+    <structure map-as="ns1:order"/>
+  </mapping>
+</binding>
